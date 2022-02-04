@@ -8,48 +8,56 @@ public class IntDigitLengthTests
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthLinearSearch(int number, int expectedLength) {
         int numberLength = number.DigitsLengthLinearSearch();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthSwitch(int number, int expectedLength) {
         int numberLength = number.DigitsLengthSwitch();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthBinarySearch(int number, int expectedLength) {
         int numberLength = number.DigitsLengthBinarySearch();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthLog2Lookup(int number, int expectedLength) {
         int numberLength = number.DigitsLengthLog2Lookup();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthConditonalLookup(int number, int expectedLength) {
         int numberLength = number.DigitsLengthConditonalLookup();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthToString(int number, int expectedLength) {
         int numberLength = number.DigitsLengthToString();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
     public void DigitsLengthLog10(int number, int expectedLength) {
         int numberLength = number.DigitsLengthLog10();
+
         Assert.Equal(expectedLength, numberLength);
     }
 
     [Theory, MemberData(nameof(IntDigitLengths))]
-    public void DigitsLengthWhile(int number, int expectedLength) {
-        int numberLength = number.DigitsLengthWhile();
+    public void DigitsLengthWhileDivision(int number, int expectedLength) {
+        int numberLength = number.DigitsLengthWhileDivision();
+
         Assert.Equal(expectedLength, numberLength);
     }
 

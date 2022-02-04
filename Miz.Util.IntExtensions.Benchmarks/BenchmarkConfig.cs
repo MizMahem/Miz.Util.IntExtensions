@@ -8,6 +8,7 @@ using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Exporters.Csv;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Loggers;
+using BenchmarkDotNet.Validators;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -29,7 +30,8 @@ public class BenchmarkConfig
             .AddLogger(ConsoleLogger.Default)
             .AddExporter(CsvExporter.Default)
             .AddExporter(HtmlExporter.Default)
-            .AddAnalyser(GetAnalysers().ToArray());
+            .AddAnalyser(GetAnalysers().ToArray())
+            .AddValidator(ReturnValueValidator.FailOnError);
     }
 
     /// <summary>

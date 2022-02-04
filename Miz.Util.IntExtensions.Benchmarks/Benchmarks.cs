@@ -10,67 +10,83 @@ using Miz.Util.IntExtensions;
 
 public class Benchmarks
 {
-    static Random RNG = new Random();
-    int[] RandomInts = Enumerable.Range(0, 100000).Select(_ => RNG.Next(int.MinValue, int.MaxValue)).ToArray();
-    int[] SequentialPositiveInts = Enumerable.Range(0, 100000).ToArray();
+    static readonly Random RNG = new Random();
+    static readonly int[] RandomInts = Enumerable.Range(0, 100000).Select(_ => RNG.Next(int.MinValue, int.MaxValue)).ToArray();
+    // static int[] RandomIntsLengths = RandomInts.Select(number => number.DigitsLengthLinearSearch()).ToArray();
+    // int[] SequentialPositiveInts = Enumerable.Range(0, 100000).ToArray();
 
     [Params(1000)]
     public int NumberOfTests { get; set; }
 
     [Benchmark(Baseline = true)]
-    public void Log10() {
+    public int Log10() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthLog10();
+            totalDigits += RandomInts[index].DigitsLengthLog10();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void While() {
+    public int WhileDivision() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthWhile();
+            totalDigits += RandomInts[index].DigitsLengthWhileDivision();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void BinarySearch() {
+    public int BinarySearch() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthBinarySearch();
+            totalDigits += RandomInts[index].DigitsLengthBinarySearch();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void Switch() {
+    public int Switch() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthSwitch();
+            totalDigits += RandomInts[index].DigitsLengthSwitch();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void LinearSearch() {
+    public int LinearSearch() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthLinearSearch();
+            totalDigits += RandomInts[index].DigitsLengthLinearSearch();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void ConditionalLookup() {
+    public int ConditionalLookup() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthConditonalLookup();
+            totalDigits += RandomInts[index].DigitsLengthConditonalLookup();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void Log2Lookup() {
+    public int Log2Lookup() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].DigitsLengthLog2Lookup();
+            totalDigits += RandomInts[index].DigitsLengthLog2Lookup();
         }
+        return totalDigits;
     }
 
     [Benchmark]
-    public void IntToString() {
+    public int IntToString() {
+        int totalDigits = 0;
         for (int index = 0; index < NumberOfTests; index++) {
-            RandomInts[index].ToString();
+            totalDigits += RandomInts[index].DigitsLengthToString();
         }
+        return totalDigits;
     }
-
 }
